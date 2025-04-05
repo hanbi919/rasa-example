@@ -1,0 +1,15 @@
+stories:
+  - story: greet and subscribe
+    steps:
+      - intent: subscribe
+      - action: newsletter_form
+      - active_loop: newsletter_form
+      # - active_loop: null
+      # - action: utter_subscribed
+      - slot_was_set:
+        - frequency: "oncy week"
+      - slot_was_set:
+        - email: "john@example.com"
+      - action: newsletter_form
+      - active_loop: null
+      - action: utter_subscribed

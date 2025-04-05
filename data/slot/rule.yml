@@ -1,0 +1,14 @@
+rules:
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: newsletter_form
+  steps:
+  # Form is deactivated
+  - action: newsletter_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: utter_subscribed
+  # - action: utter_slots_values
