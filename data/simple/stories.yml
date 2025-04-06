@@ -1,0 +1,44 @@
+version: "3.1"
+
+stories:
+  - story: 成功收集信息的故事
+    steps:
+      - intent: greet
+      - action: utter_ask_name
+      - intent: provide_name
+        entities:
+          - name: "张三"
+      - slot_was_set:
+          - name: "张三"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "zhangsan@example.com"
+      - slot_was_set:
+          - email: "zhangsan@example.com"
+      - action: utter_thanks
+      - action: utter_goodbye
+
+  - story: 姓名缺失时的处理
+    steps:
+      - intent: greet
+      - action: utter_ask_name
+      - intent: provide_name
+        entities: []
+      - action: utter_ask_name
+
+  - story: 邮箱格式验证
+    steps:
+      - intent: greet
+      - action: utter_ask_name
+      - intent: provide_name
+        entities:
+          - name: "李四"
+      - slot_was_set:
+          - name: "李四"
+      - action: utter_ask_email
+      - intent: provide_email
+        entities:
+          - email: "无效邮箱"
+      - action: action_validate_name_email
+      - action: utter_ask_email

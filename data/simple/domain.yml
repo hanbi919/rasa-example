@@ -1,0 +1,42 @@
+version: "3.1"
+
+intents:
+  - greet
+  - provide_name
+  - provide_email
+  - goodbye
+
+entities:
+  - name
+  - email
+
+slots:
+  name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: name
+  email:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: email
+
+responses:
+  utter_greet:
+    - text: "你好！请问你叫什么名字？"
+  utter_ask_name:
+    - text: "能告诉我你的名字吗？"
+  utter_ask_email:
+    - text: "谢谢{name}！能告诉我你的邮箱地址吗？"
+  utter_thanks:
+    - text: "谢谢提供信息，{name}！我们已经记录了你的邮箱：{email}。"
+  utter_goodbye:
+    - text: "再见！祝你今天愉快！"
+
+actions:
+  - action_validate_name_email
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,34 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - 你好
+    - 嗨
+    - 早上好
+    - 哈喽
+    - 喂
+
+- intent: provide_name
+  examples: |
+    - 我叫[name]张三[/name]
+    - 我是[name]李四[/name]
+    - [name]王五[/name]
+    - 我的名字是[name]赵六[/name]
+    - 你可以叫我[name]小明[/name]
+
+- intent: provide_email
+  examples: |
+    - 我的邮箱是[email]example@test.com[/email]
+    - [email]user@domain.com[/email]
+    - 邮箱：[email]someone@gmail.com[/email]
+    - 我的电子邮件是[email]contact@company.org[/email]
+    - 发到[email]me@mywebsite.net[/email]
+
+- intent: goodbye
+  examples: |
+    - 再见
+    - 拜拜
+    - 下次聊
+    - 回头见
+    - 我要走了

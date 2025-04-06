@@ -1,0 +1,18 @@
+version: "3.1"
+
+rules:
+  - rule: 问候后询问姓名
+    steps:
+      - intent: greet
+      - action: utter_ask_name
+
+  # - rule: 提供姓名后询问邮箱
+  #   steps:
+  #     - intent: provide_name
+  #     - action: utter_ask_email
+
+  - rule: 提供邮箱后感谢
+    steps:
+      - intent: provide_email
+      - action: utter_thanks
+      - action: utter_goodbye
